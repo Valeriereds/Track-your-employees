@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS employee_db;
-CREATE DATABASE employee_db;
+DROP DATABASE IF EXISTS hogwarts_db;
+CREATE DATABASE hogwarts_db;
 
-USE employee_db;
+USE hogwarts_db;
 
 CREATE TABLE department (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,11 +32,3 @@ CREATE TABLE employee (
   ON DELETE SET NULL,
 );
 
--- first_name, Last_name role_id manager_id
--- vl ro int null if manager, corrosponding int of employee id if manager
--- val rojas 1 null
--- alex green 2 1 because id 1 is his manager
--- to determine the id number corrosponding to the employee role 
--- title salary dept id
--- lawyer, int, dept id int you choose with it
--- this is how you match it to the role id as well
