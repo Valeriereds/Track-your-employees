@@ -6,7 +6,9 @@ I created this neat Employee Tracker to demonstrate my growing knowledge on crea
 
 ## Usage
 
+![gif of employee tracker in motion](<assets/images/Untitled_ Sep 1, 2023 12_02 AM.gif>)
 
+https://drive.google.com/file/d/1kUy_PG2I4PBmEQRBXY0ez4IxI9BMvhnM/view
 
 To use this CLI, simply run "npm start" in the terminal line, and you'll be greeted with a list of choices for an employee database tracker. Using the arrow keys, the user can scroll through the list to find the appropriate action. Once the action is highlighted, hit enter, and the user will either be shown the selected database (if the action chosen is VIEW ALL), or prompted to answer questions (if the answer chosen was ADD OR UPDATE). After an action is completed, the user is returned to the original full list of actions. When the user is finished with all their actions, they can choose to end the question prompts by scrolling down to END. Happy Coding!
 
