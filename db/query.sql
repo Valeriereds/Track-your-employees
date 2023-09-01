@@ -3,12 +3,12 @@ SELECT *
 FROM department;
 
 -- show all roles in departments
-SELECT role.id AS id, title, salary, department.name AS department
+SELECT role.id AS id, role.title AS title, salary, department.name AS department
 FROM role 
 JOIN department ON role.department_id = department.id;
 
 -- show all employees with roles in department
-SELECT employee.id AS id, first_name, last_name, role.title AS title, salary, department.name AS name
+SELECT employee.id AS id, first_name, last_name, role.title AS title, salary, department.name AS department, manager_id
 FROM employee
 LEFT JOIN role ON employee.role_id = role.id
 LEFT JOIN department ON role.department_id = department.id;
