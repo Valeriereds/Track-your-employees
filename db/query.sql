@@ -7,10 +7,6 @@ SELECT role.id AS id, title, salary, department.name AS department
 FROM role 
 JOIN department ON role.department_id = department.id;
 
--- role.department_id matches to department id. We're referencing these in our foreign keys. Matching in between the tables
--- role. whatever you want to select in this table to department. whatever matches from role
-
--- after AS, you're defining how you want the tables displayed, ie id/title/salary 
 -- show all employees with roles in department
 SELECT employee.id AS id, first_name, last_name, role.title AS title, salary, department.name AS name
 FROM employee
