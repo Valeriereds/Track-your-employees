@@ -15,8 +15,17 @@ const db = mysql.createConnection({
 // Connect to the DB
 db.connect((err) => {
   if (err) throw err;
-  console.log(`connected as id ${db.threadId}\n`);
-  figlet('Employee tracker', function(err, data) {
+  console.log('connected');
+  figlet.text(
+    "Employee tracker",
+    {
+      font: "Ghoulish",
+      horizontalLayout: "default",
+      verticalLayout: "default",
+      width: 80,
+      whitespaceBreak: true,
+    }, 
+    function(err, data) {
     if (err) {
       console.log('shoot, I doggone messed up');
     } else {
