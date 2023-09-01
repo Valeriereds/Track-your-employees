@@ -22,7 +22,7 @@ db.connect((err) => {
     } else {
       console.log(data);
     }  
-    startQuest();
+    // startQuest();
   });
 });
 
