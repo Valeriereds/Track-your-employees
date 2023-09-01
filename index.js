@@ -19,7 +19,7 @@ db.connect((err) => {
   figlet.text(
     "Employee tracker",
     {
-      font: "Ghoulish",
+      font: "Bloody",
       horizontalLayout: "default",
       verticalLayout: "default",
       width: 80,
@@ -31,7 +31,6 @@ db.connect((err) => {
     } else {
       console.log(data);
     }  
-    // startQuest();
   });
 });
 
