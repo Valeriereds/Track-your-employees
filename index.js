@@ -1,7 +1,7 @@
 require('dotenv').config();
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const figlet = require('figlet');
-const { default: inquirer } = require('inquirer');
+const inquirer = require('inquirer');
 
 
 const db = mysql.createConnection({
@@ -10,6 +10,20 @@ const db = mysql.createConnection({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+});
+
+// Connect to the DB
+db.connect((err) => {
+  if (err) throw err;
+  console.log(`connected as id ${db.threadId}\n`);
+  figlet('Employee tracker', function(err, data) {
+    if (err) {
+      console.log('shoot, I doggone messed up');
+    } else {
+      console.log(data);
+    }  
+    startQuest();
+  });
 });
 
 const startQuest = () => {
@@ -70,7 +84,7 @@ const viewAllDept = () => {
   db.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
-    startQuest();
+    setTimeout(startQuest, 3000);
   })
 };
 
@@ -88,7 +102,7 @@ const addNewDept = () => {
     db.query(query, choice.name, (err, res) => {
       if (err) throw err;
       console.log(`New ${choice.name} department successfully added`);
-      startQuest();
+      setTimeout(startQuest, 3000);
     });
   })
 };
@@ -99,7 +113,8 @@ const viewAllRoles = () => {
   db.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
-    startQuest();
+    setTimeout(startQuest, 3000);
+
   })
 };
 
@@ -132,8 +147,8 @@ const addRole = () => {
 
       db.query(query, [choice.title, choice.salary, choice.dept], (err, res) => {
         if (err) throw err;
-        console.log(`Successfully added ${choice.name}`);
-        startQuest();
+        console.log(`Successfully added role.`);
+        setTimeout(startQuest, 3000);
       });
     })
   })
@@ -145,7 +160,7 @@ const viewAllEmployees = () => {
   db.query(query, (err, res) => {
     if (err) throw err;
     console.table(res);
-    startQuest();
+    setTimeout(startQuest, 3000);
   })
 };
 
@@ -191,7 +206,7 @@ const addEmployee = () => {
       db.query(query, [choice.first_name, choice.last_name, choice.role, choice.manager], (err, res) => {
         if (err) throw err;
         console.log(`Employee successfully added.`)
-        startQuest();
+        setTimeout(startQuest, 3000);
       })
     })
   })
@@ -230,10 +245,12 @@ const updateRole = () => {
         db.query(query, [choice.role, choice.employee], (err, res) => {
           if (err) throw err;
           console.log('Employee role has been updated.');
-          startQuest();
+          setTimeout(startQuest, 3000);
         })
       })
     })
   })
 };
+
+
 module.exports = db;
